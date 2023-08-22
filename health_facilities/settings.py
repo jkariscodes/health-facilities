@@ -38,21 +38,26 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.gis",
+    "rest_framework",
+    "rest_framework_gis",
+    "corsheaders",
     "leaflet",
+    "drf_spectacular",
     "facilities",
-    # "restframework",
-    # "restframework_gis",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
+CORS_ALLOW_ALL_ORIGINS = True
 
 ROOT_URLCONF = "health_facilities.urls"
 
@@ -137,4 +142,14 @@ LEAFLET_CONFIG = {
     "MAX_ZOOM": 20,
     "SCALE": "both",
     "ATTRIBUTION_PREFIX": "Health Facilities Map",
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Health Facilities",
+    "DESCRIPTION": "Simple API for health facilities",
+    "VERSION": "1.0.0",
 }
