@@ -1,0 +1,36 @@
+version: "3.9"
+
+services:
+  postgis:
+    image: geonode/postgis:15
+    container_name: postgis4healthfacilities
+    volumes:
+      - ./init-db:/docker-entrypoint-initdb.d/
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+    ports:
+      - "5432:5432"
+    restart: always
+
+  django:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: django4heathfacilities
+    env_file:
+      - .env
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./:/home/geouser/healthfacilities
+    ports:
+      - "8000:8000"
+    restart: always
+    depends_on:
+      - postgis
+
+volumes:
+  postgres_data:
