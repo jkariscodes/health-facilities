@@ -1,5 +1,8 @@
 # Health Facilities App
-Health facilities is a full stack web application that leverages GeoDjango, Nginx, Node, and React to visualize the health facilities located in Kenya. The goal of this project is to showcase, to especially beginners and mid-level web developers, the use of backend and frontend technologies in crafting an interactive web application.
+Health facilities is a full-stack web application that leverages GeoDjango, Nginx, Node, and React to visualize the health facilities located in Kenya. The goal of this project is to showcase, to especially beginners and mid-level web developers, the use of backend and frontend technologies in crafting an interactive web application.
+
+![health-facilities](https://github.com/jkariscodes/health-facilities/assets/23359514/2a3c45fb-c4cf-4c75-b4df-eaa690c177a0)
+
 
 ## Table of Contents
 
