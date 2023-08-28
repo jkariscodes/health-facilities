@@ -1,11 +1,11 @@
 .leaflet-container {
   width: 100%;
-  height: 100vh;
+  height: 90vh;
 }
 
 .leaflet-popup-content-wrapper,
 .leaflet-popup-tip {
-  background: #000000;
+  background: #114302;
   color: #ffffff;
-  border: 2px dashed #fff;
+  border: 2px solid #fff;
 }

@@ -12,16 +12,16 @@ const fetcher = (url) => axios.get(url).then((res) => res.data);
 
 export const myIcon = new Icon({
   iconUrl: health,
-  iconSize: [38, 45],
-  iconAnchor: [22, 94],
-  shadowAnchor: [4, 62],
-  popupAnchor: [-3, -76],
+  iconSize: [30, 38],
+  iconAnchor: [20, 90],
+  shadowAnchor: [5, 64],
+  popupAnchor: [-4, -79],
 });
 
 function App() {
   const [activeFacility, setActiveFacility] = useState(null);
-  const position = [1.000, 38.000];
-  const zoom = 6;
+  const position = [0.099, 38.000];
+  const zoom = 7;
   const { data, error } = useSWR("http://localhost:8000/api/v1/healthfacilities", fetcher);
   const facilities = data && !error ? data : {};
 
@@ -46,6 +46,7 @@ function App() {
 
   return (
     <>
+    <h1>Health Facilities Map</h1>
       <MapContainer center={position} zoom={zoom}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
