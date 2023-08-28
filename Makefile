@@ -53,11 +53,11 @@ django-shell:
 	@echo -e "$(PURPLE)Starting Django-Python shell:$(COFF)"
 	@docker-compose run --rm django ./manage.py shell
 
-stop-django:
+stop-services:
 	@echo -e "$(RED)Stopping Django backend service:$(COFF)"
 	@docker-compose down
 
-delete-django-volumes:
+stop-delete-volumes:
 	@echo -e "$(RED)Deleting volumes for Django and PostGIS:$(COFF)"
 	@docker-compose down --volumes
 
