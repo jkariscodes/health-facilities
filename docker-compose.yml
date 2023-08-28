@@ -17,6 +17,19 @@ services:
     restart: always
     networks:
       - healthfacilities-api
+  
+  nginx:
+    build:
+         context: ./nginx
+         dockerfile: Dockerfile
+    container_name: nginx4heathfacilities
+    restart: always
+    depends_on:
+        - client
+    ports:
+        - 80:80
+    networks:
+        - healthfacilities-api
 
   django:
     build:
@@ -44,8 +57,6 @@ services:
     volumes:
       - ./client:/usr/src/app
       - /usr/src/app/node_modules
-    ports:
-      - "5173:5173"
     environment:
       - NODE_ENV=development
     depends_on:
