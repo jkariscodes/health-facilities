@@ -37,11 +37,11 @@ build-with-no-cache:
 	@echo -e "$(BLUE)Building images with no cache:$(COFF)"
 	@docker-compose build --no-cache
 
-start-django:
+start-services:
 	@echo -e "$(GREEN)Starting Django backend service:$(COFF)"
 	@docker-compose up
 
-start-django-detached:
+start-services-detached:
 	@echo -e "$(GREEN)Starting Django backend service in the background:$(COFF)"
 	@docker-compose up -d
 
