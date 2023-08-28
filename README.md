@@ -1,5 +1,5 @@
 # Health Facilities App
-Health facilities is a fullstack web application that leverages GeoDjango, Nginx, Node and React in visualizing the health facilities located in Kenya. The goal of this project is to showcase, to especially beginners and mid-level web developers, the use of backend and frontend technologies in crafting an interactive web application.
+Health facilities is a full stack web application that leverages GeoDjango, Nginx, Node, and React to visualize the health facilities located in Kenya. The goal of this project is to showcase, to especially beginners and mid-level web developers, the use of backend and frontend technologies in crafting an interactive web application.
 
 ## Table of Contents
 
@@ -53,10 +53,10 @@ Health facilities is a fullstack web application that leverages GeoDjango, Nginx
 5. Build images
    ```bash
    make build
-6. Start postgis, nginx, django, and client services
+6. Start Postgis, nginx, Django, and client services
     ```bash
     make start services
-7. Create tables in PostGIS database via the Django's migrate command.
+7. Create tables in the PostGIS database via Django's migrate command.
    ```bash
    make migrate
 8. Populate tables with health facilities data
@@ -83,7 +83,7 @@ Interacting with Both:
 
 ## API Documentation
 
-This project's API documatation has been generated using:
+This project's API documentation has been generated using:
 * __Swagger UI__ which can be accessed at http://127.0.0.1:8000/api/v1/schema/swagger-ui/
 * __Redoc__ which is accessed at http://127.0.0.1:8000/api/v1/schema/redoc/
 
