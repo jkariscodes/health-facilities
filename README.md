@@ -38,6 +38,8 @@ Health facilities is a full-stack web application that leverages GeoDjango, Ngin
 - GeoDjango
 - PostGIS
 
+__Note__: Data used in this project has been sourced from [The Humanitarian Data Exchange Find](https://data.humdata.org) data repository.
+
 ### API Gateway
 
 - Nginx proxy server
