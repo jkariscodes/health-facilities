@@ -10,22 +10,22 @@ YELLOW ?= \033[0;33m
 BLUE ?= \033[0;34m
 PURPLE ?= \033[0;35m
 
-.PHONY: all help build build-with-no-cache start-django start-django-detached shell django-shell stop-django delete-django-volumes makemigrations migrate create-superuser load-gis-data print-logs print-logs-interactive
+.PHONY: all help build build-with-no-cache start-services start-services-detached shell django-shell stop-services stop-delete-volumes makemigrations migrate create-superuser load-facilities-data print-logs print-logs-interactive
 
 help:
 	@echo -e "\n$(WHITE)Available commands:$(COFF)"
 	@echo -e "$(BLUE)make build$(COFF)                            - Builds or rebuilds services"
 	@echo -e "$(BLUE)make build-with-no-cache$(COFF)              - Builds or rebuilds services with no cache"
-	@echo -e "$(GREEN)make start-django$(COFF)                    - Starts Django service"
-	@echo -e "$(GREEN)make start-django-detached$(COFF)           - Starts Django service in the background"
+	@echo -e "$(GREEN)make start-services$(COFF)                  - Starts Django service"
+	@echo -e "$(GREEN)make start-services-detached$(COFF)         - Starts Django service in the background"
 	@echo -e "$(PURPLE)make shell$(COFF)                          - Starts a Linux shell (bash) in the django container"
 	@echo -e "$(PURPLE)make django-shell$(COFF)                   - Starts a django python shell in the django container"
-	@echo -e "$(RED)make stop-django$(COFF)                       - Stops Django service"
-	@echo -e "$(RED)make delete-django-volumes$(COFF)             - Deletes volumes associated with Django service"
+	@echo -e "$(RED)make stop-services$(COFF)                     - Stops Django service"
+	@echo -e "$(RED)make stop-delete-volumes$(COFF)               - Deletes volumes associated with Django service"
 	@echo -e "$(BLUE)make makemigrations$(COFF)                   - Runs Django's migrate command in the container"
 	@echo -e "$(BLUE)make migrate$(COFF)                          - Runs Django's makemigrations command in the container"
 	@echo -e "$(BLUE)make create-superuser$(COFF)                 - Runs Django's createsuperuser command in the container"
-	@echo -e "$(BLUE)make load-gis-data$(COFF)                    - Populates PostGIS database with data"
+	@echo -e "$(BLUE)make load-facilities-data$(COFF)             - Populates PostGIS database with gis data"
 	@echo -e "$(YELLOW)make print-logs$(COFF)                     - Prints logs on the shell"
 	@echo -e "$(YELLOW)make print-logs-interactive$(COFF)         - Prints interactive logs on the shell"
 
