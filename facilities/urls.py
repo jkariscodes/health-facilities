@@ -7,7 +7,7 @@ router = DefaultRouter()
 router.register(
     prefix="api/v1/healthfacilities",
     viewset=HealthFacilitiesViewSet,
-    basename="healthfacilities"
+    basename="healthfacilities",
 )
 
 urlpatterns = router.urls
