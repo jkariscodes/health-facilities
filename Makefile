@@ -31,56 +31,56 @@ help:
 
 build:
 	@echo -e "$(BLUE)Building images:$(COFF)"
-	@docker-compose build
+	@docker compose build
 
 build-with-no-cache:
 	@echo -e "$(BLUE)Building images with no cache:$(COFF)"
-	@docker-compose build --no-cache
+	@docker compose build --no-cache
 
 start-services:
 	@echo -e "$(GREEN)Starting Django backend service:$(COFF)"
-	@docker-compose up
+	@docker compose up
 
 start-services-detached:
 	@echo -e "$(GREEN)Starting Django backend service in the background:$(COFF)"
-	@docker-compose up -d
+	@docker compose up -d
 
 shell:
 	@echo -e "$(PURPLE)Starting Linux (Bash) shell in Django:$(COFF)"
-	@docker-compose run --rm django bash
+	@docker compose run --rm django bash
 
 django-shell:
 	@echo -e "$(PURPLE)Starting Django-Python shell:$(COFF)"
-	@docker-compose run --rm django ./manage.py shell
+	@docker compose run --rm django ./manage.py shell
 
 stop-services:
 	@echo -e "$(RED)Stopping Django backend service:$(COFF)"
-	@docker-compose down
+	@docker compose down
 
 stop-delete-volumes:
 	@echo -e "$(RED)Deleting volumes for Django and PostGIS:$(COFF)"
-	@docker-compose down --volumes
+	@docker compose down --volumes
 
 makemigrations:
 	@echo -e "$(BLUE)Make Django migrations:$(COFF)"
-	@docker-compose run --rm django ./manage.py makemigrations $(cmd)
+	@docker compose run --rm django ./manage.py makemigrations $(cmd)
 
 migrate:
 	@echo -e "$(BLUE)Update database schema from Django migrations:$(COFF)"
-	@docker-compose run --rm django ./manage.py migrate $(cmd)
+	@docker compose run --rm django ./manage.py migrate $(cmd)
 
 create-superuser:
 	@echo -e "$(BLUE)Create superuser for the backend admin:$(COFF)"
-	@docker-compose run --rm django ./manage.py createsuperuser $(cmd)
+	@docker compose run --rm django ./manage.py createsuperuser $(cmd)
 
 load-facilities-data:
 	@echo -e "$(BLUE)Populate DB with GIS data:$(COFF)"
-	@docker-compose run --rm django python ./manage.py shell -c "from data import load_facilities;load_facilities.import_data()"
+	@docker compose run --rm django python ./manage.py shell -c "from data import load_facilities;load_facilities.import_data()"
 
 print-logs:
 	@echo -e "$(YELLOW)Print out logs:$(COFF)"
-	@docker-compose logs django$(cmd)
+	@docker compose logs django$(cmd)
 
 print-logs-interactive:
 	@echo -e "$(YELLO)Print out logs:$(COFF)"
-	@docker-compose logs --follow django $(cmd)
+	@docker compose logs --follow django $(cmd)
